@@ -1,0 +1,33 @@
+C:\Users\Sylvain\Documents\Visual Studio 2013\Projects\BrainStorm\NotIt\obj\Debug\Smilly.BrainStorm.Forms.BrainStormApplication.resources
+C:\Users\Sylvain\Documents\Visual Studio 2013\Projects\BrainStorm\NotIt\obj\Debug\Smilly.BrainStorm.Forms.BrainStormListBar.resources
+C:\Users\Sylvain\Documents\Visual Studio 2013\Projects\BrainStorm\NotIt\obj\Debug\Smilly.BrainStorm.Forms.BrainStormSettings.resources
+C:\Users\Sylvain\Documents\Visual Studio 2013\Projects\BrainStorm\NotIt\obj\Debug\Smilly.BrainStorm.Forms.BrainStormToolBar.resources
+C:\Users\Sylvain\Documents\Visual Studio 2013\Projects\BrainStorm\NotIt\obj\Debug\Smilly.BrainStorm.Forms.BrainStormView.resources
+C:\Users\Sylvain\Documents\Visual Studio 2013\Projects\BrainStorm\NotIt\obj\Debug\BrainStorm.csproj.GenerateResource.Cache
+C:\Users\Sylvain\Documents\Visual Studio 2013\Projects\BrainStorm\NotIt\bin\Debug\BrainStorm.exe.config
+C:\Users\Sylvain\Documents\Visual Studio 2013\Projects\BrainStorm\NotIt\bin\Debug\BrainStorm.xml
+C:\Users\Sylvain\Documents\Visual Studio 2013\Projects\BrainStorm\NotIt\bin\Debug\BrainStorm.exe
+C:\Users\Sylvain\Documents\Visual Studio 2013\Projects\BrainStorm\NotIt\bin\Debug\BrainStorm.pdb
+C:\Users\Sylvain\Documents\Visual Studio 2013\Projects\BrainStorm\NotIt\bin\Debug\fr\BrainStorm.resources.dll
+C:\Users\Sylvain\Documents\Visual Studio 2013\Projects\BrainStorm\NotIt\obj\Debug\Smilly.BrainStorm.Properties.Resources.resources
+C:\Users\Sylvain\Documents\Visual Studio 2013\Projects\BrainStorm\NotIt\obj\Debug\Smilly.BrainStorm.Properties.Resources.fr.resources
+C:\Users\Sylvain\Documents\Visual Studio 2013\Projects\BrainStorm\NotIt\obj\Debug\fr\BrainStorm.resources.dll
+C:\Users\Sylvain\Documents\Visual Studio 2013\Projects\BrainStorm\NotIt\obj\Debug\BrainStorm.exe
+C:\Users\Sylvain\Documents\Visual Studio 2013\Projects\BrainStorm\NotIt\obj\Debug\BrainStorm.pdb
+C:\Users\Sylvain\Documents\Visual Studio 2013\Projects\BrainStorm - tests\NotIt\bin\Debug\BrainStorm.exe.config
+C:\Users\Sylvain\Documents\Visual Studio 2013\Projects\BrainStorm - tests\NotIt\bin\Debug\BrainStorm.xml
+C:\Users\Sylvain\Documents\Visual Studio 2013\Projects\BrainStorm - tests\NotIt\bin\Debug\BrainStorm.exe
+C:\Users\Sylvain\Documents\Visual Studio 2013\Projects\BrainStorm - tests\NotIt\bin\Debug\BrainStorm.pdb
+C:\Users\Sylvain\Documents\Visual Studio 2013\Projects\BrainStorm - tests\NotIt\bin\Debug\fr\BrainStorm.resources.dll
+C:\Users\Sylvain\Documents\Visual Studio 2013\Projects\BrainStorm - tests\NotIt\obj\Debug\BrainStorm.csprojResolveAssemblyReference.cache
+C:\Users\Sylvain\Documents\Visual Studio 2013\Projects\BrainStorm - tests\NotIt\obj\Debug\Smilly.BrainStorm.Forms.BrainStormApplication.resources
+C:\Users\Sylvain\Documents\Visual Studio 2013\Projects\BrainStorm - tests\NotIt\obj\Debug\Smilly.BrainStorm.Forms.BrainStormListBar.resources
+C:\Users\Sylvain\Documents\Visual Studio 2013\Projects\BrainStorm - tests\NotIt\obj\Debug\Smilly.BrainStorm.Forms.BrainStormSettings.resources
+C:\Users\Sylvain\Documents\Visual Studio 2013\Projects\BrainStorm - tests\NotIt\obj\Debug\Smilly.BrainStorm.Forms.BrainStormToolBar.resources
+C:\Users\Sylvain\Documents\Visual Studio 2013\Projects\BrainStorm - tests\NotIt\obj\Debug\Smilly.BrainStorm.Forms.BrainStormView.resources
+C:\Users\Sylvain\Documents\Visual Studio 2013\Projects\BrainStorm - tests\NotIt\obj\Debug\Smilly.BrainStorm.Properties.Resources.resources
+C:\Users\Sylvain\Documents\Visual Studio 2013\Projects\BrainStorm - tests\NotIt\obj\Debug\Smilly.BrainStorm.Properties.Resources.fr.resources
+C:\Users\Sylvain\Documents\Visual Studio 2013\Projects\BrainStorm - tests\NotIt\obj\Debug\BrainStorm.csproj.GenerateResource.Cache
+C:\Users\Sylvain\Documents\Visual Studio 2013\Projects\BrainStorm - tests\NotIt\obj\Debug\fr\BrainStorm.resources.dll
+C:\Users\Sylvain\Documents\Visual Studio 2013\Projects\BrainStorm - tests\NotIt\obj\Debug\BrainStorm.exe
+C:\Users\Sylvain\Documents\Visual Studio 2013\Projects\BrainStorm - tests\NotIt\obj\Debug\BrainStorm.pdb

@@ -1,0 +1,1139 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BrainStorm</name>
+    </assembly>
+    <members>
+        <member name="T:Smilly.BrainStorm.Forms.FormManager">
+            <summary>
+            Gestion des Forms spécifiques de l'applications :
+            - ListBar
+            - ToolBar
+            Permet l'affichage/le masquage de ces Forms.
+            </summary>
+        </member>
+        <member name="F:Smilly.BrainStorm.Forms.FormManager.instance">
+            Instance unique du FormManager.
+        </member>
+        <member name="F:Smilly.BrainStorm.Forms.FormManager.syncRoot">
+            Objet de synchronisation utilisé pour assurer l'unicité du singleton.
+        </member>
+        <member name="F:Smilly.BrainStorm.Forms.FormManager.listBarVisible">
+            Valeur indiquant si la ListBar est visible.
+        </member>
+        <member name="F:Smilly.BrainStorm.Forms.FormManager.listBar">
+            ListBar de l'application.
+        </member>
+        <member name="F:Smilly.BrainStorm.Forms.FormManager.toolBarVisible">
+            Valeur indiquant si la ToolBar est visible.
+        </member>
+        <member name="F:Smilly.BrainStorm.Forms.FormManager.toolBar">
+            ToolBar de l'application.
+        </member>
+        <member name="F:Smilly.BrainStorm.Forms.FormManager.listBarTopMost">
+            Sauvegarde temporaire de la propriété TopMost de la ListBar.
+        </member>
+        <member name="F:Smilly.BrainStorm.Forms.FormManager.toolBarTopMost">
+            Sauvegarde temporaire de la propriété TopMost de la ToolBar.
+        </member>
+        <member name="F:Smilly.BrainStorm.Forms.FormManager.formClosedEventHandler">
+            Réponse aux évènements de fermeture de la ListBar et de la ToolBar.
+        </member>
+        <member name="F:Smilly.BrainStorm.Forms.FormManager.brainStormApplication">
+            Référence vers la fenêtre principale de l'application.
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.FormManager.#ctor">
+            Constructeur privé du singleton.
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.FormManager.FireListBarVisibleChanged">
+            Déclenche l'évènement ListBarVisibleChanged.
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.FormManager.ShowListBar">
+            Affiche la ListBar.
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.FormManager.HideListBar">
+            Masque la ListBar.
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.FormManager.FireToolBarVisibleChanged">
+            Déclenche l'évènement ToolBarVisibleChanged.
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.FormManager.ShowToolBar">
+            Affiche la ToolBar.
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.FormManager.HideToolBar">
+            Masque la ToolBar.
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.FormManager.EnableTopMostForms(System.Boolean)">
+            <param name="enable"><c>true</c> pour autoriser l'affichage en TopMost, <c>false</c> pour le désactiver.</param>
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.FormManager.SaveConfiguration">
+            Sauvegarde la configuration courante :
+            - Position et taille de la ListBar
+            - Position et taille de la ToolBar
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.FormManager.Close">
+            Fermeture de l'application : on ferme proprement les fenêtres gérées par le FormManager.
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.FormManager.formClosed(System.Object,System.Windows.Forms.FormClosedEventArgs)">
+            <param name="sender">ListBar ou ToolBar.</param>
+            <param name="e">Fermeture de la fenêtre.</param>
+        </member>
+        <member name="P:Smilly.BrainStorm.Forms.FormManager.Instance">
+            Obtient l'instance unique du FormManager.
+        </member>
+        <member name="E:Smilly.BrainStorm.Forms.FormManager.ListBarVisibleChanged">
+            Evènement de changement de visibilité de la ListBar.
+            Déclenché lorsque la ListBar est affichée/masquée.
+        </member>
+        <member name="P:Smilly.BrainStorm.Forms.FormManager.ListBarVisible">
+            Obtient ou définis une valeur indiquant si la ListBar est visible.
+        </member>
+        <member name="P:Smilly.BrainStorm.Forms.FormManager.ListBarShowInTaskBar">
+            Définis une valeur indiquant si la ListBar doit apparaitre dans la barre des tâches.
+        </member>
+        <member name="E:Smilly.BrainStorm.Forms.FormManager.ToolBarVisibleChanged">
+            Evènement de changement de visibilité de la ToolBar.
+            Déclenché lorsque la ToolBar est affichée/masquée.
+        </member>
+        <member name="P:Smilly.BrainStorm.Forms.FormManager.ToolBarVisible">
+            Obtient ou définis une valeur indiquant si la ToolBar est visible.
+        </member>
+        <member name="P:Smilly.BrainStorm.Forms.FormManager.ToolBarShowInTaskBar">
+            Définis une valeur indiquant si la ToolBar doit être affichée dans la barre des tâches.
+        </member>
+        <member name="P:Smilly.BrainStorm.Forms.FormManager.BrainStormApplication">
+            Définis la référence vers la fenêtre principale de l'application.
+        </member>
+        <member name="T:Smilly.BrainStorm.Forms.FormManager.ListBarVisibleChangedEventHandler">
+            <param name="source">ListBar.</param>
+            <param name="e">Modification de la visibilité de la ListBar.</param>
+        </member>
+        <member name="T:Smilly.BrainStorm.Forms.FormManager.ListBarVisibleChangedArgs">
+            Arguments de l'évènement ListBarVisibleChanged.
+            Fournit la visibilité courante de la ListBar.
+        </member>
+        <member name="F:Smilly.BrainStorm.Forms.FormManager.ListBarVisibleChangedArgs.visible">
+            Valeur indiquant si la ListBar est visible.
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.FormManager.ListBarVisibleChangedArgs.#ctor(System.Boolean)">
+            <param name="visible">Valeur indiquant si la ListBar est actuellement visible.</param>
+        </member>
+        <member name="P:Smilly.BrainStorm.Forms.FormManager.ListBarVisibleChangedArgs.Visible">
+            Obtient une valeur indiquant si la ListBar est visible.
+        </member>
+        <member name="T:Smilly.BrainStorm.Forms.FormManager.ToolBarVisibleChangedEventHandler">
+            <param name="source">ListBar.</param>
+            <param name="e">Modification de la visibilité de la ListBar.</param>
+        </member>
+        <member name="T:Smilly.BrainStorm.Forms.FormManager.ToolBarVisibleChangedArgs">
+            Arguments de l'évènement ToolBarVisibleChanged.
+            Fournit la visibilité courante de la ToolBar.
+        </member>
+        <member name="F:Smilly.BrainStorm.Forms.FormManager.ToolBarVisibleChangedArgs.visible">
+            Valeur indiquant si la ToolBar est visible.
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.FormManager.ToolBarVisibleChangedArgs.#ctor(System.Boolean)">
+            <param name="visible">Valeur indiquant si la ToolBar est actuellement visible.</param>
+        </member>
+        <member name="P:Smilly.BrainStorm.Forms.FormManager.ToolBarVisibleChangedArgs.Visible">
+            Obtient une valeur indiquant si la ToolBar est visible.
+        </member>
+        <member name="T:Smilly.BrainStorm.Forms.BrainStormApplication">
+            Fenêtre d'administration des BrainStorms.
+            Il s'agit de la fenêtre principale de l'application, sa fermeture entraine la fermeture 
+            de toutes les BrainStorms.
+            <summary>
+            Fenêtre d'administration des BrainStorms.
+            </summary>
+            <remarks>
+            Il s'agit de la fenêtre principale de l'application, sa fermeture entraine la fermeture 
+            de toutes les BrainStorms.
+            </remarks>
+        </member>
+        <member name="F:Smilly.BrainStorm.Forms.BrainStormApplication.controler">
+            Référence vers le controler de BrainStorms.
+        </member>
+        <member name="F:Smilly.BrainStorm.Forms.BrainStormApplication.splashTimer">
+            Timer d'affichage de la fenêtre au démarrage.
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormApplication.#ctor">
+            Constructeur par défaut de la fenêtre.
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormApplication.InitializeControler">
+            Obtention d'une référence vers le controler de BrainStorm.
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormApplication.InitializeListBar">
+            Initialise la ListBar.
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormApplication.InitializeToolBar">
+            Initialise la ToolBar.
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormApplication.InitializeSplashEffect">
+            Initialisation de l'effet splash screen (l'application est affichée au démarrage, 
+            puis masquée ensuite).
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormApplication.newButton_Click(System.Object,System.EventArgs)">
+            Demande de création d'une nouvelle BrainStorm.
+            <param name="sender">Bouton newBrainStorm.</param>
+            <param name="e">Evènement de clique.</param>
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormApplication.NewBrainStorm(System.Int32)">
+            Création d'une nouvelle BrainStorm.
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormApplication.newBrainStormToolStripMenuItem_Click(System.Object,System.EventArgs)">
+            Demande de création d'une nouvelle BrainStorm.
+            <param name="sender">Menu de l'icône de notification.</param>
+            <param name="e">Evènement de clique.</param>
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormApplication.FrmBrainStormManager_FormClosing(System.Object,System.Windows.Forms.FormClosingEventArgs)">
+            Requête de fermeture de la fenêtre.
+            On demande confirmation car la fermeture de cette fenêtre 
+            entraine l'arrêt de l'application.
+            <param name="sender">Fenêtre d'administration.</param>
+            <param name="e">Demande de fermeture de la fenêtre.</param>
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormApplication.exitToolStripMenuItem_Click(System.Object,System.EventArgs)">
+            Demande de fermeture de l'application.
+            <param name="sender">Entrée du menu.</param>
+            <param name="e">Evènement de clique.</param>
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormApplication.BrainStormAdministration_FormClosed(System.Object,System.Windows.Forms.FormClosedEventArgs)">
+            La fenêtre à été fermée, on libère le controler de BrainStorm.
+            La libération du controler entraine la sauvegarde des BrainStorms courantes.
+            <param name="sender">Fenêtre d'administration.</param>
+            <param name="e">Fermeture confirmée de la fenêtre.</param>
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormApplication.showAllBrainStormsToolStripMenuItem_Click(System.Object,System.EventArgs)">
+            Demande d'affichage au premier plan des BrainStorms.
+            <param name="sender">Entrée de menu.</param>
+            <param name="e">Evènement de clique.</param>
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormApplication.hideAllToolStripMenuItem_Click(System.Object,System.EventArgs)">
+            Demande de masquage des BrainStorms.
+            <param name="sender">Entrée de menu.</param>
+            <param name="e">Evènement de clique.</param>
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormApplication.splashTimer_Elapsed(System.Object,System.Timers.ElapsedEventArgs)">
+            Déclenchement du timer, on cache la fenêtre de l'application.
+            <param name="sender">Timer splashTimer.</param>
+            <param name="e">Déclencement du timer.</param>
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormApplication.HideSplash">
+            Masque la fenêtre d'application.
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormApplication.optionsToolStripMenuItem_Click(System.Object,System.EventArgs)">
+            Accès au paramètrage de l'application.
+            <param name="sender">Entrée de menu optionsToolStripMenuItem.</param>
+            <param name="e">Clique.</param>
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormApplication.EditOptions">
+            Affiche la fenêtre d'édition des options et applique les modifications si nécessaire.
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormApplication.EnableTopMostForms(System.Boolean)">
+            Active ou désactive l'affichage TopMost des fenêtres de l'application.
+            Les fenêtres concernées sont les BrainStorms et la ListBar.
+            Désactiver l'affichage TopMost permet l'affichage de MessageBox ou de Dialog par dessus ces fenêtres.
+            <param name="enable"><c>true</c> pour activer les fenêtre TopMost, 
+            <c>false</c> pour les désactiver.</param>
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormApplication.listbarToolStripMenuItem_Click(System.Object,System.EventArgs)">
+            Demande d'affichage/masquage de la ListBar.
+            <param name="sender">Entrée du menu.</param>
+            <param name="e">Clique.</param>
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormApplication.notifyIcon_MouseDoubleClick(System.Object,System.Windows.Forms.MouseEventArgs)">
+            Affichage de la ListBar par double clique sur l'icône de notification.
+            <param name="sender">Icône de notification.</param>
+            <param name="e">Double clique.</param>
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormApplication.Instance_ListBarVisibleChanged(System.Object,Smilly.BrainStorm.Forms.FormManager.ListBarVisibleChangedArgs)">
+            Réponse à l'évènement ListBarVisibleChanged.
+            <param name="source">FormManager.</param>
+            <param name="e">Changement de visibilité de la ListBar.</param>
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormApplication.toolBarToolStripMenuItem_Click(System.Object,System.EventArgs)">
+            Demande d'affichage/masquage de la ToolBar.
+            <param name="sender">Entrée du menu.</param>
+            <param name="e">Clique.</param>
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormApplication.Instance_ToolBarVisibleChanged(System.Object,Smilly.BrainStorm.Forms.FormManager.ToolBarVisibleChangedArgs)">
+            Réponse à l'évènement ToolBarVisibleChanged.
+            <param name="source">FormManager.</param>
+            <param name="e">Changement de visibilité de la ToolBar.</param>
+        </member>
+        <member name="F:Smilly.BrainStorm.Forms.BrainStormApplication.components">
+            Required designer variable.
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormApplication.Dispose(System.Boolean)">
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormApplication.InitializeComponent">
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+        </member>
+        <member name="T:Smilly.BrainStorm.Forms.BrainStormApplication.HideSplashCallback">
+            Délégué utiliser pour appeler la méthode de masquage depuis le thread courant.
+        </member>
+        <member name="T:Smilly.BrainStorm.Forms.BrainStormListBar">
+            <summary>
+            ListBar, affichant la liste des BrainStorms.
+            Permet de lister toutes les BrainStorms et d'intéragir avec elles.
+            </summary>
+            <summary>
+            ListBar, affichant la liste des BrainStorms.
+            Permet de lister toutes les BrainStorms et d'intéragir avec elles.
+            </summary>
+        </member>
+        <member name="F:Smilly.BrainStorm.Forms.BrainStormListBar.controler">
+            Référence vers le controler de BrainStorms.
+        </member>
+        <member name="F:Smilly.BrainStorm.Forms.BrainStormListBar.brainStormAddedEventHandler">
+            Réponse aux évènements d'ajout de BrainStorm.
+        </member>
+        <member name="F:Smilly.BrainStorm.Forms.BrainStormListBar.brainStormRemovedEventHandler">
+            Réponse aux évènements de suppression de BrainStorm.
+        </member>
+        <member name="F:Smilly.BrainStorm.Forms.BrainStormListBar.statusChangedEventHandler">
+            Réponse aux évènements de modification de BrainStorm.
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormListBar.#ctor">
+            Construction de la ListBar.
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormListBar.InitializeEventHandlers">
+            Initialisations des "event handlers".
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormListBar.RegisterToControlerEvents">
+            Abonnement aux évènements du BrainStormControler.
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormListBar.FillList">
+            Initialise la liste des BrainStorms.
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormListBar.BrainStormListBar_FormClosed(System.Object,System.Windows.Forms.FormClosedEventArgs)">
+            <param name="sender">ListBar.</param>
+            <param name="e">Fermeture.</param>
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormListBar.UnregisterFromControlerEvents">
+            Désabonnement des évènements du BrainStormControler.
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormListBar.UnregisterFromBrainStormEvents">
+            Désabonnement des évènements des BrainStorms.
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormListBar.controler_BrainStormRemoved(System.Object,Smilly.BrainStorm.BrainStormControler.BrainStormRemovedArgs)">
+            Suppression d'une BrainStorm, mise à jour de la liste.
+            <param name="sender">BrainStormControler.</param>
+            <param name="e">Suppression d'une BrainStorm.</param>
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormListBar.controler_BrainStormAdded(System.Object,Smilly.BrainStorm.BrainStormControler.BrainStormAddedArgs)">
+            Ajout d'une BrainStorm, mise à jour de la liste.
+            <param name="sender">BrainStormControler.</param>
+            <param name="e">Ajout d'une BrainStorm.</param>
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormListBar.AddBrainStorm(Smilly.BrainStorm.BrainStorm)">
+            Ajoute la BrainStorm à la liste.
+            <param name="brainStorm">BrainStorm à ajouter.</param>
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormListBar.BrainStorm_StatusChanged(System.Object)">
+            <param name="source">BrainStorm.</param>
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormListBar.listView_ItemSelectionChanged(System.Object,System.Windows.Forms.ListViewItemSelectionChangedEventArgs)">
+            Sélection d'une ou plusieurs BrainStorms.
+            <param name="sender">ListView.</param>
+            <param name="e">Changement de sélection.</param>
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormListBar.deletedToolStripMenuItem_Click(System.Object,System.EventArgs)">
+            Suppression des BrainStorms sélectionnées.
+            <param name="sender">Entrée du menu contextuel.</param>
+            <param name="e">Clique.</param>
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormListBar.newToolStripMenuItem_Click(System.Object,System.EventArgs)">
+            Création d'une BrainStorm.
+            <param name="sender">Entrée du menu contextuel.</param>
+            <param name="e">Clique.</param>
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormListBar.NewNotLocation">
+            Calcul la position de la BrainStorm nouvellement créée, pour éviter qu'elle n'aparaisse 
+            sous la ListBar.
+            <returns>Position où placer la nouvelle BrainStorm.</returns>
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormListBar.alwaysOnTopToolStripMenuItem_Click(System.Object,System.EventArgs)">
+            <param name="sender">Entrée du menu contextuel.</param>
+            <param name="e">Clique.</param>
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormListBar.topToolStripMenuItem_Click(System.Object,System.EventArgs)">
+            <param name="sender">Entrée du menu contextuel.</param>
+            <param name="e">Clique.</param>
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormListBar.bottomToolStripMenuItem_Click(System.Object,System.EventArgs)">
+            Place la ListBar sur la bordure inférieure de l'écran, centrée horizontalement.
+            <param name="sender">Entrée du menu contextuel.</param>
+            <param name="e">Clique.</param>
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormListBar.leftToolStripMenuItem_Click(System.Object,System.EventArgs)">
+            Place la ListBar sur la bordure gauche de l'écran, centrée verticalement.
+            <param name="sender">Entrée du menu contextuel.</param>
+            <param name="e">Clique.</param>
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormListBar.rightToolStripMenuItem_Click(System.Object,System.EventArgs)">
+            Place la ListBar sur la bordure droite de l'écran, centrée verticalement.
+            <param name="sender">Entrée du menu contextuel.</param>
+            <param name="e">Clique.</param>
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormListBar.showAllToolStripMenuItem_Click(System.Object,System.EventArgs)">
+            Affiche toutes les BrainStorms au premier plan.
+            <param name="sender">Entrée du menu contextuel.</param>
+            <param name="e">Clique.</param>
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormListBar.hideAllToolStripMenuItem_Click(System.Object,System.EventArgs)">
+            Cache toutes les BrainStorms.
+            <param name="sender">Entrée du menu contextuel.</param>
+            <param name="e">Clique.</param>
+        </member>
+        <member name="F:Smilly.BrainStorm.Forms.BrainStormListBar.components">
+            Required designer variable.
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormListBar.Dispose(System.Boolean)">
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormListBar.InitializeComponent">
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+        </member>
+        <member name="T:Smilly.BrainStorm.Forms.BrainStormToolBar">
+            ToolBar de l'application.
+            Fournis l'accès aux fonctionnalités principales de l'application.
+            <summary>
+            ToolBar de l'application.
+            Fournis l'accès aux fonctionnalités de base de l'application.
+            </summary>
+        </member>
+        <member name="F:Smilly.BrainStorm.Forms.BrainStormToolBar.brainStormApplication">
+            Référence vers la fenêtre principale de l'application.
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormToolBar.#ctor">
+            Constructeur par défaut.
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormToolBar.Instance_ListBarVisibleChanged(System.Object,Smilly.BrainStorm.Forms.FormManager.ListBarVisibleChangedArgs)">
+            La ListBar a été affichée/masquée.
+            <param name="source">FormManager.</param>
+            <param name="e">Changement de visibilité de la ListBar.</param>
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormToolBar.showListToolStripButton_Click(System.Object,System.EventArgs)">
+            Affichage/Masquage de la ListBar.
+            <param name="sender">Bouton ShowList.</param>
+            <param name="e">Clique.</param>
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormToolBar.toolStripButtonMemo_Click(System.Object,System.EventArgs)">
+            Nouvelles BrainStorm avec envoi du type
+            <param name="sender">Bouton New.</param>
+            <param name="e">Clique.</param>
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormToolBar.showAllToolStripButton_Click(System.Object,System.EventArgs)">
+            Affiche toutes les BrainStorms au premier plan.
+            <param name="sender">Bouton ShowAll.</param>
+            <param name="e">Clique.</param>
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormToolBar.hideAllToolStripButton_Click(System.Object,System.EventArgs)">
+            Masque toutes les BrainStorms.
+            <param name="sender">Bouton HideAll.</param>
+            <param name="e">Clique.</param>
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormToolBar.optionToolStripButton_Click(System.Object,System.EventArgs)">
+            Accède à la configuration de l'application.
+            <param name="sender">Bouton Option.</param>
+            <param name="e">Clique.</param>
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormToolBar.SaveConfiguration">
+            Sauvegarde la configuration courante de la ToolBar :
+            - disposition (verticale ou horizontale)
+        </member>
+        <member name="F:Smilly.BrainStorm.Forms.BrainStormToolBar.components">
+            Required designer variable.
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormToolBar.Dispose(System.Boolean)">
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormToolBar.InitializeComponent">
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+        </member>
+        <member name="P:Smilly.BrainStorm.Forms.BrainStormToolBar.BrainStormApplication">
+            Définis la référence vers la fenêtre principale de l'application.
+        </member>
+        <member name="T:Smilly.BrainStorm.BrainStorm">
+            Représentation d'une BrainStorm.
+            Une BrainStorm possède :
+            - un titre.
+            - des détails (contenu principal de la BrainStorm).
+            - des coordonnées sur l'écran.
+            - un id unique.
+            - une représentation (vue).
+            - un type (couleur change).
+        </member>
+        <member name="F:Smilly.BrainStorm.BrainStorm.title">
+            Titre de la BrainStorm.
+        </member>
+        <member name="F:Smilly.BrainStorm.BrainStorm.details">
+            Détails de la BrainStorm.
+        </member>
+        <member name="F:Smilly.BrainStorm.BrainStorm.location">
+            Coordonnées sur l'écran où afficher la BrainStorm.
+        </member>
+        <member name="F:Smilly.BrainStorm.BrainStorm.view">
+            Représentation de la BrainStorm (vue).
+        </member>
+        <member name="F:Smilly.BrainStorm.BrainStorm.id">
+            Identifiant unique de la BrainStorm.
+        </member>
+        <member name="F:Smilly.BrainStorm.BrainStorm.pinned">
+            Indique si la BrainStorm est épinglée.
+        </member>
+        <member name="F:Smilly.BrainStorm.BrainStorm.type">
+            Type unique de la BrainStorm.
+        </member>
+        <member name="M:Smilly.BrainStorm.BrainStorm.#ctor(System.Int32,System.Int32)">
+            Constructeur par défaut.
+            Construction d'une BrainStorm à partir d'un identifiant unique (fournit par le controller).
+            <param name="id">Identifiant unique de la BrainStorm à construire.</param>
+        </member>
+        <member name="M:Smilly.BrainStorm.BrainStorm.SetDefaultSettings">
+            Initialize les variables locales avec les valeurs par défaut.
+        </member>
+        <member name="M:Smilly.BrainStorm.BrainStorm.CenterViewOnCursor">
+            Décalle la BrainStorm pour qu'elle soit créée de façon à être "centrée" sur le curseur.
+        </member>
+        <member name="M:Smilly.BrainStorm.BrainStorm.AttachView">
+            Associe une vue à la BrainStorm.
+        </member>
+        <member name="M:Smilly.BrainStorm.BrainStorm.DettachView">
+            Détache la vue associée de la BrainStorm.
+        </member>
+        <member name="M:Smilly.BrainStorm.BrainStorm.Show">
+            Affiche la BrainStorm en premier plan.
+        </member>
+        <member name="M:Smilly.BrainStorm.BrainStorm.Hide">
+            Masque la BrainStorm.
+        </member>
+        <member name="M:Smilly.BrainStorm.BrainStorm.FireStatusChanged">
+            Déclenche l'évènement StatusChanged.
+        </member>
+        <member name="P:Smilly.BrainStorm.BrainStorm.Title">
+            Obtient ou définis le titre de la BrainStorm.
+        </member>
+        <member name="P:Smilly.BrainStorm.BrainStorm.Details">
+            Obtient ou définis les détails de la BrainStorm.
+        </member>
+        <member name="P:Smilly.BrainStorm.BrainStorm.Location">
+            Obtient ou définis les coordonnées sur l'écran où afficher la BrainStorm.
+        </member>
+        <member name="P:Smilly.BrainStorm.BrainStorm.Type">
+            Obtient ou définis le type de la BrainStorm.
+        </member>
+        <member name="P:Smilly.BrainStorm.BrainStorm.Id">
+            Obtient l'identifiant unique de la BrainStorm.
+        </member>
+        <member name="P:Smilly.BrainStorm.BrainStorm.Pinned">
+            Obtient ou définis une valeur indiquant si la BrainStorm est épinglée.
+        </member>
+        <member name="E:Smilly.BrainStorm.BrainStorm.Showed">
+            Evènement Showed.
+            Déclenché lorsque une requête d'affichage au premier plan est appliquée à la BrainStorm.
+        </member>
+        <member name="E:Smilly.BrainStorm.BrainStorm.Hided">
+            Evènement Hided.
+            Déclenché lorsque une requête de masquage est appliquée à la BrainStorm.
+        </member>
+        <member name="E:Smilly.BrainStorm.BrainStorm.StatusChanged">
+            Evènement StatusChanged.
+            Déclenché lorsque une ou plusieurs propriétés de la BrainStorm sont modifiées.
+        </member>
+        <member name="T:Smilly.BrainStorm.BrainStorm.ShowedEventHandler">
+            Délégué de réponse à l'évènement Showed.
+            <param name="source">BrainStorm source de l'évènement.</param>
+        </member>
+        <member name="T:Smilly.BrainStorm.BrainStorm.HidedEventHandler">
+            Délégué de réponse à l'évènement Hided.
+            <param name="source">BrainStorm source de l'évènement.</param>
+        </member>
+        <member name="T:Smilly.BrainStorm.BrainStorm.StatusChangedEventHandler">
+            Délégué de réponse à l'évènement StatusChanged.
+            <param name="source">BrainStorm source de l'évènement.</param>
+        </member>
+        <member name="T:Smilly.BrainStorm.BrainStormControler">
+            Controler de BrainStorms.
+            Gère la collection de BrainStorm.
+            Les BrainStorms sont stockées dans un unique fichier.
+            La sauvegarde est effectuée lors de la libération du controler.
+        </member>
+        <member name="F:Smilly.BrainStorm.BrainStormControler.instance">
+            Instance unique du BrainStormControler.
+        </member>
+        <member name="F:Smilly.BrainStorm.BrainStormControler.syncRoot">
+            Objet de synchronisation utiliser pour l'accès au singleton.
+        </member>
+        <member name="F:Smilly.BrainStorm.BrainStormControler.brainStorms">
+            Dictionnaire de BrainStorm, indexé par l'identifiant des BrainStorms.
+        </member>
+        <member name="F:Smilly.BrainStorm.BrainStormControler.brainStormsFile">
+            Chemin du fichier stockant les BrainStorms à la fermeture de l'application.
+        </member>
+        <member name="F:Smilly.BrainStorm.BrainStormControler.viewWidth">
+            Largeur d'une vue de BrainStorm.
+        </member>
+        <member name="F:Smilly.BrainStorm.BrainStormControler.pinnedBrainStorms">
+            Sauvegarde temporaire de l'état de BrainStorms (épinglées ou non).
+        </member>
+        <member name="M:Smilly.BrainStorm.BrainStormControler.#ctor">
+            Constructeur privé du singleton.
+        </member>
+        <member name="M:Smilly.BrainStorm.BrainStormControler.RetrieveViewWidth">
+            On crée une vue de BrainStorm pour connaître sa largeur.  
+            La vue n'est pas utilisée, elle est tout de suite libérée.
+        </member>
+        <member name="M:Smilly.BrainStorm.BrainStormControler.New(System.Int32)">
+            Nouvelle BrainStorm.
+            <returns>Identifiant de la BrainStorm créée.</returns>
+        </member>
+        <member name="M:Smilly.BrainStorm.BrainStormControler.FreeId">
+            Obtient un identifiant non utilisé.
+            <returns>Identifiant libre.</returns>
+        </member>
+        <member name="M:Smilly.BrainStorm.BrainStormControler.Move(System.Int32,System.Drawing.Point)">
+            Déplace une BrainStorm vers les coordonnées spécifiées.
+            <param name="id">Identifiant de la BrainStorm à déplacer.</param>
+            <param name="location">Coordonnées de destination de la BrainStorm.</param>
+        </member>
+        <member name="M:Smilly.BrainStorm.BrainStormControler.SetTitle(System.Int32,System.String)">
+            Définis le titre d'une BrainStorm.
+            <param name="id">Identifiant de la BrainStorm à modifier.</param>
+            <param name="title">Titre de la BrainStorm à appliquer.</param>
+        </member>
+        <member name="M:Smilly.BrainStorm.BrainStormControler.SetDetails(System.Int32,System.String)">
+            Définis les détails de la BrainStorm.
+            <param name="id">Identifiant de la BrainStorm à modifier.</param>
+            <param name="details">Détails de la BrainStorm à appliquer.</param>
+        </member>
+        <member name="M:Smilly.BrainStorm.BrainStormControler.SetType(System.Int32,System.Int32)">
+            Définis les détails de la BrainStorm.
+            <param name="id">Identifiant de la BrainStorm à modifier.</param>
+            <param name="type">Type de la BrainStorm à appliquer.</param>
+        </member>
+        <member name="M:Smilly.BrainStorm.BrainStormControler.Delete(System.Int32)">
+            Suppression d'une BrainStorm.
+            <param name="id">Identifiant de la BrainStorm à supprimer.</param>
+        </member>
+        <member name="M:Smilly.BrainStorm.BrainStormControler.Pin(System.Int32,System.Boolean)">
+            Définis si la BrainStorm est épinglée.
+            <param name="id">Identifiant de la BrainStorm à modifier.</param>
+            <param name="pinned">Valeur indiquant si la BrainStorm est épinglée.</param>
+        </member>
+        <member name="M:Smilly.BrainStorm.BrainStormControler.ShowAll">
+            Affichage au premier plan de toutes les BrainStorms.
+        </member>
+        <member name="M:Smilly.BrainStorm.BrainStormControler.HideAll">
+            Masquage de toutes les BrainStorms.
+        </member>
+        <member name="M:Smilly.BrainStorm.BrainStormControler.DisableTopMostBrainStorms">
+            On désactive temporairement la propriété d'épinglage des BrainStorms (aucune BrainStorm épinglée). 
+            A utiliser pour permettre l'affichage d'une MessageBox ou d'une Dialog en premier plan.
+            Les valeurs des propriétés d'épinglage sont sauvegardées avant d'être désactivée, pour 
+            permettre leur restauration.
+        </member>
+        <member name="M:Smilly.BrainStorm.BrainStormControler.EnableTopMostBrainStorms">
+            Restaure l'état de la propriétés d'épinglage de toutes les BrainStorms.
+            A utiliser après l'appel à DisableTopMostBrainStorms pour revenir à l'état initial.
+        </member>
+        <member name="M:Smilly.BrainStorm.BrainStormControler.Save(System.Boolean)">
+            Sauvegarde des BrainStorms dans un fichier.
+            <param name="exiting"><c>true</c> si l'application est fermée après la sauvegarde
+            <c>false</c> si l'application doit rester utilisable après la sauvegarde.</param>
+        </member>
+        <member name="M:Smilly.BrainStorm.BrainStormControler.Load">
+            Charge le dictionnaire de BrainStorms depuis un fichier.
+        </member>
+        <member name="M:Smilly.BrainStorm.BrainStormControler.AttachViews">
+            Attache toutes les vues aux BrainStorms.
+        </member>
+        <member name="M:Smilly.BrainStorm.BrainStormControler.DettachViews">
+            Détache toutes les vues des BrainStorms.
+            Détacher les vues permet la sérialisation des BrainStorms (les vues n'étant pas sérialisable).
+        </member>
+        <member name="M:Smilly.BrainStorm.BrainStormControler.Dispose">
+            Libération de l'objet, on sauvegarde le dictionnaire de BrainStorms.
+        </member>
+        <member name="M:Smilly.BrainStorm.BrainStormControler.Finalize">
+            Destruction de l'objet, on sauvegarde le dictionnaire de BrainStorms.
+        </member>
+        <member name="P:Smilly.BrainStorm.BrainStormControler.Instance">
+            Obtient l'instance unique du BrainStormControler.
+        </member>
+        <member name="P:Smilly.BrainStorm.BrainStormControler.BrainStormsFile">
+            Obtient ou définis le nom du fichier stockant les BrainStorms.
+        </member>
+        <member name="E:Smilly.BrainStorm.BrainStormControler.BrainStormAdded">
+            Evènement d'ajout de BrainStorm.
+            Déclenché lors la création d'une nouvelle BrainStorm par le BrainStormControler.
+        </member>
+        <member name="E:Smilly.BrainStorm.BrainStormControler.BrainStormRemoved">
+            Evènement de suppression de BrainStorm.
+            Déclenché lors la suppression d'une BrainStorm par le BrainStormControler.
+        </member>
+        <member name="P:Smilly.BrainStorm.BrainStormControler.BrainStorms">
+            Obtient la liste des BrainStorms gérées par le BrainStormControler.
+        </member>
+        <member name="P:Smilly.BrainStorm.BrainStormControler.ViewWidth">
+            Obtient la largeur d'une vue de BrainStorm.
+        </member>
+        <member name="T:Smilly.BrainStorm.BrainStormControler.BrainStormAddedArgs">
+            Argument d'évènement d'ajout d'une BrainStorm.
+            Fournit la BrainStorm nouvellement créée.
+        </member>
+        <member name="F:Smilly.BrainStorm.BrainStormControler.BrainStormAddedArgs.brainStorm">
+            BrainStorm venant d'être ajoutée.
+        </member>
+        <member name="M:Smilly.BrainStorm.BrainStormControler.BrainStormAddedArgs.#ctor(Smilly.BrainStorm.BrainStorm)">
+            Construction de l'argument, en précisant la BrainStorm concernée.
+            <param name="brainStorm">BrainStorm venant d'être ajoutée.</param>
+        </member>
+        <member name="P:Smilly.BrainStorm.BrainStormControler.BrainStormAddedArgs.BrainStorm">
+            Obtient la BrainStorm venant d'être ajoutée.
+        </member>
+        <member name="T:Smilly.BrainStorm.BrainStormControler.BrainStormAddedEventHandler">
+            Délégué de réponse aux évènements d'ajout d'une BrainStorm.
+            <param name="sender">BrainStormControler.</param>
+            <param name="e">Argument d'ajout de BrainStorm.</param>
+        </member>
+        <member name="T:Smilly.BrainStorm.BrainStormControler.BrainStormRemovedArgs">
+            Argument d'évènement de suppression d'une BrainStorm.
+            Fournit l'identifiant de la BrainStorm supprimée.
+        </member>
+        <member name="F:Smilly.BrainStorm.BrainStormControler.BrainStormRemovedArgs.brainStormId">
+            Identifiant de la BrainStorm supprimée.
+        </member>
+        <member name="M:Smilly.BrainStorm.BrainStormControler.BrainStormRemovedArgs.#ctor(System.Int32)">
+            Construction d'un argument de suppression, précisant l'identifiant 
+            de la BrainStorm supprimée.
+            <param name="brainStormId">Identifiant de la BrainStorm supprimée.</param>
+        </member>
+        <member name="P:Smilly.BrainStorm.BrainStormControler.BrainStormRemovedArgs.BrainStormId">
+            Obtient l'identifiant de la BrainStorm supprimée.
+        </member>
+        <member name="T:Smilly.BrainStorm.BrainStormControler.BrainStormRemovedEventHandler">
+            Délégué de réponse aux évènements de suppression d'une BrainStorm.
+            <param name="sender">BrainStormControler.</param>
+            <param name="e">Argument de suppression de BrainStorm.</param>
+        </member>
+        <member name="T:Smilly.BrainStorm.Forms.BrainStormSettings">
+            <summary>
+            Fenêtre de paramétrage de l'application.
+            </summary>
+            <summary>
+            Fenêtre de paramétrage de l'application.
+            </summary>
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormSettings.#ctor">
+            Constructeur par défaut.
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormSettings.GetCurrentSettings">
+            Récupère la configuration courante de l'application.
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormSettings.cancelButton_Click(System.Object,System.EventArgs)">
+            <param name="sender">Boutton cancelButton.</param>
+            <param name="e">Clique.</param>
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormSettings.okButton_Click(System.Object,System.EventArgs)">
+            <param name="sender">Boutton okButton.</param>
+            <param name="e">Clique.</param>
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormSettings.ValidateSettings">
+            Prend en compte les changements effectués à la configuration 
+            et les sauvegarde.
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormSettings.browseButton_Click(System.Object,System.EventArgs)">
+            <param name="sender">Bouton browseButton.</param>
+            <param name="e">Clique.</param>
+        </member>
+        <member name="F:Smilly.BrainStorm.Forms.BrainStormSettings.components">
+            Required designer variable.
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormSettings.Dispose(System.Boolean)">
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormSettings.InitializeComponent">
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+        </member>
+        <member name="T:Smilly.BrainStorm.Forms.BrainStormView">
+            Représentation d'une BrainStorm (vue).
+            Représentation d'une BrainStorm (vue).
+        </member>
+        <member name="F:Smilly.BrainStorm.Forms.BrainStormView.WS_BORDER">
+            Attribut de bordure des fenêtres
+        </member>
+        <member name="F:Smilly.BrainStorm.Forms.BrainStormView.modelId">
+            Identifiant de la BrainStorm représentée.
+        </member>
+        <member name="F:Smilly.BrainStorm.Forms.BrainStormView.origin">
+            Coordonnées d'origine de la vue (au début d'un déplacement).
+        </member>
+        <member name="F:Smilly.BrainStorm.Forms.BrainStormView.controler">
+            Référence vers le controler de BrainStorms.
+        </member>
+        <member name="F:Smilly.BrainStorm.Forms.BrainStormView.isTitleEdited">
+            Le titre est en cours d'édition.
+        </member>
+        <member name="F:Smilly.BrainStorm.Forms.BrainStormView.isDetailsEdited">
+            Les détails de la BrainStorm sont en cours d'édition.
+        </member>
+        <member name="F:Smilly.BrainStorm.Forms.BrainStormView.previousCursor">
+            Sauvegarde temporaire du curseur pendant un déplacement.
+        </member>
+        <member name="F:Smilly.BrainStorm.Forms.BrainStormView.statusChangedEventHandler">
+            Réponse aux évènements StatusChanged.
+        </member>
+        <member name="F:Smilly.BrainStorm.Forms.BrainStormView.hidedEventHandler">
+            Réponse aux évènements Hided.
+        </member>
+        <member name="F:Smilly.BrainStorm.Forms.BrainStormView.showedEventHandler">
+            Réponse aux évènements Showed.
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormView.#ctor">
+            Constructeur par défaut.
+            Non utilisé. Fournit pour permettre l'affichage dans le designer.
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormView.#ctor(Smilly.BrainStorm.BrainStorm,System.Int32)">
+            Construction d'une vue pour une BrainStorm.
+            <param name="model">BrainStorm à représenter.</param>
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormView.SetTransparentBackgroundImage">
+            Définition de la transparence sur l'image de fond de la fenêtre.
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormView.model_Showed(System.Object)">
+            Mise en premier plan de la BrainStorm.
+            <param name="source">BrainStorm.</param>
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormView.model_Hided(System.Object)">
+            Masquage de la BrainStorm.
+            <param name="source">BrainStorm.</param>
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormView.model_StatusChanged(System.Object)">
+            Modification des propriétés de la BrainStorm.
+            <param name="source">BrainStorm.</param>
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormView.UpdateView(Smilly.BrainStorm.BrainStorm)">
+            <param name="model">BrainStorm à représenter.</param>
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormView.OnMouseDown(System.Windows.Forms.MouseEventArgs)">
+            L'utilisateur clique sur la vue, on se prépare à la déplacer.
+            Le déplacement se fait en cliquant avec le bouton gauche sur la vue.
+            <param name="e">Evènement de début de clique de souris.</param>
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormView.OnMouseMove(System.Windows.Forms.MouseEventArgs)">
+            Déplacement de la souris, si le bouton gauche est enfoncé, on déplace la vue.
+            <param name="e">Evènement de déplacement de la souris.</param>
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormView.label_MouseEnter(System.Object,System.EventArgs)">
+            La souris survole un label, modification du curseur.
+            <param name="sender">Labels titleLabel ou detailsLabel.</param>
+            <param name="e">Début de survole.</param>
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormView.label_MouseLeave(System.Object,System.EventArgs)">
+            La souris ne survole plus le label, modification du curseur.
+            <param name="sender">Labels titleLabel ou detailsLabel.</param>
+            <param name="e">Fin de survole.</param>
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormView.BrainStormView_MouseEnter(System.Object,System.EventArgs)">
+            Début de survol du curseur sur la vue.
+            <param name="sender">BrainStormView.</param>
+            <param name="e">Entrée du curseur sur le contrôle.</param>
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormView.BrainStormView_MouseLeave(System.Object,System.EventArgs)">
+            Fin du survol du curseur sur la vue.
+            <param name="sender">BrainStormView.</param>
+            <param name="e">Sortie du curseur du contrôle.</param>
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormView.Detach(Smilly.BrainStorm.BrainStorm)">
+            <param name="model">BrainStorm représentée.</param>
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormView.titleLabel_Click(System.Object,System.EventArgs)">
+            L'utilisateur à cliqué sur le titre de la BrainStorm, on entre en mode édition du titre.
+            <param name="sender">Label titleLabel.</param>
+            <param name="e">Evènement de clique.</param>
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormView.EnterTitleEditing">
+            Entre dans le mode édition du titre : on remplace le label par un text box.
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormView.LeaveTitleEditing">
+            Sort du mode édition du titre : on cache le textbox et on affiche a nouveau le label.
+            Le changement de titre est envoyé au controler.
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormView.titleTextBox_KeyDown(System.Object,System.Windows.Forms.KeyEventArgs)">
+            On récupère l'appuie sur la touche "Entrée" dans le textbox d'édition du titre, 
+            pour mettre fin à l'édition du titre et passer à l'édition des détails.
+            <param name="sender">Textbox titleTextBox.</param>
+            <param name="e">Appuie sur une touche.</param>
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormView.titleTextBox_LostFocus(System.Object,System.EventArgs)">
+            Le TextBox d'édition perd le focus, on met fin à l'édition du titre.
+            <param name="sender">TextBox titleTextBox.</param>
+            <param name="e">Perte de focus.</param>
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormView.detailsLabel_Click(System.Object,System.EventArgs)">
+            L'utilisateur à cliqué sur les détails de la BrainStorm, on entre en mode édition des détails.
+            <param name="sender">Label detailsLabel.</param>
+            <param name="e">Clique.</param>
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormView.EnterDetailsEditing">
+            Entre dans le mode édition des détails : on remplace le Label par un TextBox.
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormView.LeaveDetailsEditing">
+            Sort du mode édition des détails : on cache le TextBox et on affiche a nouveau le Label.
+            Le changement de détails est envoyé au controler.
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormView.detailsTextBox_LostFocus(System.Object,System.EventArgs)">
+            Le TextBox d'édition perd le focus, on met fin à l'édition des détails.
+            <param name="sender">TextBox detailsTextBox.</param>
+            <param name="e">Perte de focus.</param>
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormView.pinToolStripMenuItem_Click(System.Object,System.EventArgs)">
+            Modification de la propriété "épinglée" de la BrainStorm.
+            <param name="sender">Entrée de menu pinToolStripMenuItem.</param>
+            <param name="e">Clique</param>
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormView.deleteToolStripMenuItem_Click(System.Object,System.EventArgs)">
+            Suppression de la BrainStorm.
+            <param name="sender">Entrée de menu deleteToolStripMenuItem.</param>
+            <param name="e">Clique</param>
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormView.newToolStripMenuItem_Click(System.Object,System.EventArgs)">
+            Création d'une nouvelle BrainStorm.
+            <param name="sender">Entrée de menu newToolStripMenuItem.</param>
+            <param name="e">Clique</param>
+        </member>
+        <member name="F:Smilly.BrainStorm.Forms.BrainStormView.components">
+            Required designer variable.
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormView.Dispose(System.Boolean)">
+            Clean up any resources being used.
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Smilly.BrainStorm.Forms.BrainStormView.InitializeComponent">
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+        </member>
+        <member name="P:Smilly.BrainStorm.Forms.BrainStormView.CreateParams">
+            Ajout d'un paramètre à la fenêtre pour masquer les bordures de fenêtre en mode "toolBar".
+        </member>
+        <member name="T:Smilly.BrainStorm.Program">
+            <summary>
+            Classe statique d'amorçage de l'application BrainStorm.
+            Initialize l'application et la démarre.
+            </summary>
+        </member>
+        <member name="M:Smilly.BrainStorm.Program.Main">
+            Point d'entrée de l'application.
+            Démarre l'application. La fenêtre principale est affichée pendant l'initialisation, 
+            puis elle est réduite. Une icône de notification permet d'accéder aux fonctionnalités 
+            de l'application.
+            Lors du chargement de l'application, les BrainStorms sont chargés en mémoire.
+            Les modifications effectuées sur les BrainStorms sont sauvegardées uniquement lorsque 
+            l'application se termine.
+        </member>
+        <member name="M:Smilly.BrainStorm.Program.IsUniqueInstance">
+            <returns><c>true</c> si l'instance en cours est unique, <c>false</c> s'il existe 
+            au moins une autre instance de l'application en cours.</returns>
+        </member>
+        <member name="M:Smilly.BrainStorm.Program.InitializeSettings">
+            Initialisation des paramètres de l'application.
+        </member>
+        <member name="M:Smilly.BrainStorm.Program.Run">
+            Démarrage effectif de l'application.
+        </member>
+        <member name="T:Smilly.BrainStorm.Properties.Resources">
+            <summary>
+              Une classe de ressource fortement typée destinée, entre autres, à la consultation des chaînes localisées.
+            </summary>
+        </member>
+        <member name="P:Smilly.BrainStorm.Properties.Resources.ResourceManager">
+            <summary>
+              Retourne l'instance ResourceManager mise en cache utilisée par cette classe.
+            </summary>
+        </member>
+        <member name="P:Smilly.BrainStorm.Properties.Resources.Culture">
+            <summary>
+              Remplace la propriété CurrentUICulture du thread actuel pour toutes
+              les recherches de ressources à l'aide de cette classe de ressource fortement typée.
+            </summary>
+        </member>
+        <member name="P:Smilly.BrainStorm.Properties.Resources.Agrement">
+            <summary>
+              Recherche une ressource localisée de type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Smilly.BrainStorm.Properties.Resources.AlreadyRunning">
+            <summary>
+              Recherche une chaîne localisée semblable à BrainStorm Application is already running.
+            </summary>
+        </member>
+        <member name="P:Smilly.BrainStorm.Properties.Resources.ApplicationClosing">
+            <summary>
+              Recherche une chaîne localisée semblable à Application is closing.
+            </summary>
+        </member>
+        <member name="P:Smilly.BrainStorm.Properties.Resources.Background_Agrement">
+            <summary>
+              Recherche une ressource localisée de type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Smilly.BrainStorm.Properties.Resources.Background_Idea">
+            <summary>
+              Recherche une ressource localisée de type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Smilly.BrainStorm.Properties.Resources.Background_Memo">
+            <summary>
+              Recherche une ressource localisée de type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Smilly.BrainStorm.Properties.Resources.Background_Not">
+            <summary>
+              Recherche une ressource localisée de type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Smilly.BrainStorm.Properties.Resources.DefaultDetails">
+            <summary>
+              Recherche une chaîne localisée semblable à &lt;Click to edit&gt;.
+            </summary>
+        </member>
+        <member name="P:Smilly.BrainStorm.Properties.Resources.DefaultTitle">
+            <summary>
+              Recherche une chaîne localisée semblable à BrainStorm.
+            </summary>
+        </member>
+        <member name="P:Smilly.BrainStorm.Properties.Resources.Idea">
+            <summary>
+              Recherche une ressource localisée de type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Smilly.BrainStorm.Properties.Resources.Memo">
+            <summary>
+              Recherche une ressource localisée de type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Smilly.BrainStorm.Properties.Resources.Not">
+            <summary>
+              Recherche une ressource localisée de type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Smilly.BrainStorm.Properties.Resources.ReallyWantToQuit">
+            <summary>
+              Recherche une chaîne localisée semblable à Do you really want to quit?.
+            </summary>
+        </member>
+        <member name="T:Smilly.BrainStorm.Settings.SettingManager">
+            <summary>
+            Gestion des paramètres de l'application.
+            Permet la lecture, la modification et la sauvegarde des paramètres de l'application.
+            </summary>
+        </member>
+        <member name="F:Smilly.BrainStorm.Settings.SettingManager.defaultConfigFile">
+            Fichier de configuration par défaut.
+        </member>
+        <member name="F:Smilly.BrainStorm.Settings.SettingManager.instance">
+            Instance unique du SettingManager.
+        </member>
+        <member name="F:Smilly.BrainStorm.Settings.SettingManager.syncRoot">
+            Objet de synchronisation, pour assurer l'unicité du singleton.
+        </member>
+        <member name="F:Smilly.BrainStorm.Settings.SettingManager.configFile">
+            Fichier de configuration courant.
+        </member>
+        <member name="F:Smilly.BrainStorm.Settings.SettingManager.settings">
+            Paramètres de l'application.
+        </member>
+        <member name="M:Smilly.BrainStorm.Settings.SettingManager.#ctor">
+            Constructeur par défaut.
+        </member>
+        <member name="M:Smilly.BrainStorm.Settings.SettingManager.Load">
+            Charge la configuration de l'application.
+            La configuration est chargée depuis le fichier de configuration courant.
+        </member>
+        <member name="M:Smilly.BrainStorm.Settings.SettingManager.Save">
+            Sauvegarde la configuration courante de l'application.
+            La configuration est sauvegardée dans le fichier de configuration courant.
+        </member>
+        <member name="P:Smilly.BrainStorm.Settings.SettingManager.Instance">
+            Obtient l'instance unique du SettingManager.
+        </member>
+        <member name="P:Smilly.BrainStorm.Settings.SettingManager.ConfigFile">
+            <remarks>
+            La modification du fichier de configuration entraine le chargement 
+            de la configuration depuis le nouveau fichier de configuration.
+            </remarks>
+        </member>
+        <member name="P:Smilly.BrainStorm.Settings.SettingManager.Settings">
+            Obtient les paramètres de l'application.
+        </member>
+        <member name="T:Smilly.BrainStorm.Settings.Settings">
+            <summary>
+            Paramètres de l'application.
+            </summary>
+        </member>
+        <member name="F:Smilly.BrainStorm.Settings.Settings.brainStormsFile">
+            Fichier stockant les BrainStorms.
+        </member>
+        <member name="F:Smilly.BrainStorm.Settings.Settings.showListBarInTaskBar">
+            Valeur indiquant si la ListBar doit être affichée dans la TaskBar.
+        </member>
+        <member name="F:Smilly.BrainStorm.Settings.Settings.listBarLocation">
+            Position initiale de la ListBar.
+        </member>
+        <member name="F:Smilly.BrainStorm.Settings.Settings.listBarSize">
+            Taille initiale de la ListBar.
+        </member>
+        <member name="F:Smilly.BrainStorm.Settings.Settings.showListBar">
+            Valeur indiquant si la ListBar est visible au démarrage de l'application.
+        </member>
+        <member name="F:Smilly.BrainStorm.Settings.Settings.toolBarLocation">
+            Position initiale de la ToolBar.
+        </member>
+        <member name="F:Smilly.BrainStorm.Settings.Settings.toolBarSize">
+            Taille initiale de la ToolBar.
+        </member>
+        <member name="F:Smilly.BrainStorm.Settings.Settings.showToolBar">
+            Valeur indiquant si la ToolBar est visible au démarrage de l'application.
+        </member>
+        <member name="F:Smilly.BrainStorm.Settings.Settings.verticalToolBar">
+            Valeur indiquant si la ToolBar est affichée en mode vertical.
+        </member>
+        <member name="M:Smilly.BrainStorm.Settings.Settings.#ctor">
+            Constructeur par défaut. Initialisation des paramètres par défaut.
+        </member>
+        <member name="P:Smilly.BrainStorm.Settings.Settings.BrainStormsFile">
+            Obtient ou définis le fichier stockant les BrainStorms.
+        </member>
+        <member name="P:Smilly.BrainStorm.Settings.Settings.ShowListBarInTaskBar">
+            Obtient ou définis une valeur indiquant si la ListBar doit être affichée dans la TaskBar.
+        </member>
+        <member name="P:Smilly.BrainStorm.Settings.Settings.ListBarLocation">
+            Obtient ou définis la position initiale de la ListBar.
+        </member>
+        <member name="P:Smilly.BrainStorm.Settings.Settings.ListBarSize">
+            Obtient ou définis la taille initiale de la ListBar.
+        </member>
+        <member name="P:Smilly.BrainStorm.Settings.Settings.ShowListBar">
+            Obtient ou définis une valeur indiquant si la ListBar est visible au démarrage de l'application.
+        </member>
+        <member name="P:Smilly.BrainStorm.Settings.Settings.ToolBarLocation">
+            Obtient ou définis la position initiale de la ToolBar.
+        </member>
+        <member name="P:Smilly.BrainStorm.Settings.Settings.ToolBarSize">
+            Obtient ou définis la taille initiale de la ToolBar.
+        </member>
+        <member name="P:Smilly.BrainStorm.Settings.Settings.ShowToolBar">
+            Obtient ou définis une valeur indiquant si la ToolBar est visible au démarrage de l'application.
+        </member>
+        <member name="P:Smilly.BrainStorm.Settings.Settings.VerticalToolBar">
+            Obtient ou définis une valeur indiquant si la ToolBar est affichée en mode vertical.
+        </member>
+    </members>
+</doc>
